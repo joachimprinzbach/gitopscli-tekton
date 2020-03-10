@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: build-and-push
+spec:
+  resources:
+    - name: repo
+      type: git
+    - name: image
+      type: image
+
+  tasks:
+    - name: build
+      taskRef:
+        name: buildah
+        kind: ClusterTask
+      resources:
+        inputs:
+          - name: source
+            resource: repo
+        outputs:
+          - name: image
+            resource: image
+      params:
+        - name: TLSVERIFY
+          value: "false"

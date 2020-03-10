@@ -1,0 +1,10 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: gitopscli-gitrepo
+  namespace: gitopscli-pipeline
+spec:
+  params:
+    - name: url
+      value: https://github.com/baloise-incubator/gitopscli
+  type: git
