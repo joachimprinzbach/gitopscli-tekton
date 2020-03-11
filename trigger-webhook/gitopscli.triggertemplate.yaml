@@ -46,12 +46,12 @@ spec:
           name: build-and-push
         serviceAccountName: 'pipeline'
         resources:
-          - name: my-source-repo
+          - name: repo
             resourceRef:
-              name: gitopscli-gitrepo-$(params.gitrepositoryname)-$(uid)
-          - name: my-image-resource
+              name: $(params.gitrepositoryurl)
+          - name: image
             resourceRef:
-              name: gitopscli-imagerepo-$(params.gitrepositoryname)-$(uid)
+              name: joachimprinzbach/gitopscli
         params:
           - name: deployment-name
             value: $(params.gitrepositoryname)
