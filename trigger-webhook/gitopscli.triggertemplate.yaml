@@ -48,10 +48,10 @@ spec:
         resources:
           - name: repo
             resourceRef:
-              name: $(params.gitrepositoryurl)
+              name: gitopscli-gitrepo
           - name: image
             resourceRef:
-              name: joachimprinzbach/gitopscli
+              name: gitopscli-imagerepo
         params:
           - name: deployment-name
             value: $(params.gitrepositoryname)
