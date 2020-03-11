@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: gitopscli-eventlistener
+spec:
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  wildcardPolicy: None
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: el-gitopscli-listener
+    weight: 100
